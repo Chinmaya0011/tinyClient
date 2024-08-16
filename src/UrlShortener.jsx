@@ -15,7 +15,7 @@ function UrlShortener() {
     setCopySuccess(''); // Clear copy success message
 
     try {
-      const response = await fetch('http://localhost:3000/shorten', {
+      const response = await fetch('https://tinyserver-zejl.onrender.com/shorten', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
