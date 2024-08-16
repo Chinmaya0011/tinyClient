@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './urlStats.module.css';
 
 const URLStats = () => {
@@ -7,7 +7,6 @@ const URLStats = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Helper function to extract the part of the URL after .com/
   const extractPath = (url) => {
     const match = url.match(/\.com\/(.+)/);
     return match ? match[1] : url;
@@ -48,6 +47,18 @@ const URLStats = () => {
     }
   };
 
+  // useEffect to poll for updates every 10 seconds
+  useEffect(() => {
+    let interval;
+    if (stats) {
+      interval = setInterval(() => {
+        fetchStats(shortUrl);
+      }, 10000); // Polling interval set to 10 seconds
+    }
+
+    return () => clearInterval(interval); // Cleanup the interval on component unmount or when stats changes
+  }, [stats, shortUrl]);
+
   return (
     <div className={style.container}>
       <h1 className={style.header}>URL Statistics Dashboard</h1>
@@ -60,10 +71,7 @@ const URLStats = () => {
           required
           className={style.input}
         />
-        <button
-          type="submit"
-          className={style.button}
-        >
+        <button type="submit" className={style.button}>
           Get Stats
         </button>
       </form>
@@ -84,8 +92,24 @@ const URLStats = () => {
             </thead>
             <tbody>
               <tr>
-                <td>{stats.shortUrl}</td>
-                <td><a href={stats.originalUrl} target="_blank" rel="noopener noreferrer">{stats.originalUrl}</a></td>
+                <td>
+                  <a
+                    href={`https://tinyserver-zejl.onrender.com/stats/${encodeURIComponent(extractPath(stats.shortUrl))}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {stats.shortUrl}
+                  </a>
+                </td>
+                <td>
+                  <a
+                    href={stats.originalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {stats.originalUrl}
+                  </a>
+                </td>
                 <td>{stats.clickCount}</td>
               </tr>
             </tbody>
