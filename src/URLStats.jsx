@@ -93,13 +93,9 @@ const URLStats = () => {
             <tbody>
               <tr>
                 <td>
-                  <a
-                    href={`https://tinyserver-zejl.onrender.com/stats/${encodeURIComponent(extractPath(stats.shortUrl))}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+              
                     {stats.shortUrl}
-                  </a>
+                 
                 </td>
                 <td>
                   <a
