@@ -314,4 +314,81 @@ h1::after {
 
 .copyButton:hover span {
   transform: scale(1.1);
+}/* Media Query for Mobile Screens */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px #0d15b4a6, -5px -5px 15px #4924eb;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  h1::after {
+    width: 50px;
+    height: 3px;
+  }
+
+  .form {
+    gap: 15px;
+  }
+
+  .input {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+    border-radius: 25px;
+  }
+
+  .button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+  }
+
+  .shortUrl {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 3px 3px 10px rgba(0, 170, 255, 0.4), -3px -3px 10px rgba(0, 170, 255, 0.2);
+  }
+
+  .shortUrl h2 {
+    font-size: 1.5rem;
+  }
+
+  .shortUrl a {
+    font-size: 1.2rem;
+  }
+
+  .copyButton {
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+
+  .error {
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+
+  .success-message {
+    font-size: 0.9rem;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 8px;
+  }
+
+  .input-container label {
+    font-size: 0.9rem;
+  }
+
+  .input-container input:focus ~ label,
+  .input-container input:not(:placeholder-shown) ~ label {
+    font-size: 0.7rem;
+  }
 }
