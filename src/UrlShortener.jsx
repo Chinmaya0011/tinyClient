@@ -74,7 +74,7 @@ function UrlShortener() {
           required
           className={style.input}
         />
-        <button type="submit" className={style.button}>Shorten URL</button>
+        <button type="submit" className={style.button}>Customize</button>
       </form>
 
       {error && <p className={style.error}>{error}</p>}
