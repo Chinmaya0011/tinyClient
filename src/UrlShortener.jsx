@@ -48,7 +48,7 @@ function UrlShortener() {
 
   return (
     <div className={style.container}>
-      <h1>URL Shortener</h1>
+   
       <form onSubmit={handleSubmit} className={style.form}>
         <input
           type="text"

@@ -4,7 +4,7 @@ import styles from './header.module.css';
 const Header = () => {
   return (
     <header className={styles.header}>
-      <h1 className={styles.title}>URLShortner</h1>
+      <h1 className={styles.title}>LinkYourWay</h1>
     </header>
   );
 };
